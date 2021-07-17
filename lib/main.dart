@@ -1,8 +1,8 @@
-import 'package:dkatalis_demo/screens/registration_home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'screens/bindings/registration_home_binding.dart';
+import 'screens/registration_home/bindings/registration_home_binding.dart';
+import 'screens/registration_home/registration_home.dart';
 
 void main() {
   runApp(GetMaterialApp(

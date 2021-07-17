@@ -6,6 +6,14 @@ class RegistrationHomeController extends GetxController {
   bool shouldShowBackButton() => !(completedScreens.value == 0);
 
   void backPressed() {
-    print('back pressed');
+    if (completedScreens.value >= 0) {
+      completedScreens.value--;
+    }
+  }
+
+  void nextPressed() {
+    if (completedScreens.value < 4) {
+      completedScreens.value++;
+    }
   }
 }

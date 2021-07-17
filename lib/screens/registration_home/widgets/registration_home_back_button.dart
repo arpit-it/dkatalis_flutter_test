@@ -25,7 +25,10 @@ class RegistrationHomeBackButton extends StatelessWidget {
                       )),
                   Text(
                     'Create Account',
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16),
                   )
                 ],
               )

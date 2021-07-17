@@ -1,3 +1,4 @@
+import 'package:dkatalis_demo/utilities/project_colors.dart';
 import 'package:flutter/material.dart';
 
 class RegistrationScreenCounter extends StatelessWidget {
@@ -45,7 +46,9 @@ class RegistrationScreenCounter extends StatelessWidget {
       height: 50,
       width: 50,
       decoration: BoxDecoration(
-        color: isScreenComplete ? Colors.green : Colors.white,
+        color: isScreenComplete
+            ? ProjectColors.SCREEN_COUNTER_COMPLETE
+            : ProjectColors.SCREEN_COUNTER_INCOMPLETE,
         borderRadius: BorderRadius.all(Radius.circular(25)),
         border: Border.all(
           width: 2,

@@ -1,7 +1,8 @@
-import 'package:dkatalis_demo/screens/registration_home/controllers/registration_home_controller/registration_home_controller.dart';
-import 'package:dkatalis_demo/utilities/project_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../../utilities/project_colors.dart';
+import '../controllers/registration_home_controller/registration_home_controller.dart';
 
 class RegistrationPassword extends StatelessWidget {
   RegistrationPassword({Key? key}) : super(key: key);
@@ -40,8 +41,9 @@ class RegistrationPassword extends StatelessWidget {
             ),
             Obx(() {
               return TextField(
-                onChanged: controller.onPasswordTextChange,
-                obscureText: controller.obscurePassword.value,
+                onChanged: controller.passwordScreenHelper.onPasswordTextChange,
+                obscureText:
+                    controller.passwordScreenHelper.obscurePassword.value,
                 decoration: InputDecoration(
                   fillColor: Colors.white,
                   filled: true,
@@ -51,11 +53,13 @@ class RegistrationPassword extends StatelessWidget {
                   suffixIcon: IconButton(
                     icon: Icon(
                       Icons.visibility,
-                      color: controller.obscurePassword.value
-                          ? ProjectColors.BACKGROUND_BLUE
-                          : ProjectColors.SCREEN_COUNTER_COMPLETE,
+                      color:
+                          controller.passwordScreenHelper.obscurePassword.value
+                              ? ProjectColors.BACKGROUND_BLUE
+                              : ProjectColors.SCREEN_COUNTER_COMPLETE,
                     ),
-                    onPressed: controller.toggleObscureText,
+                    onPressed:
+                        controller.passwordScreenHelper.toggleObscureText,
                   ),
                 ),
               );
@@ -80,9 +84,10 @@ class RegistrationPassword extends StatelessWidget {
                           width: 10,
                         ),
                         Text(
-                          controller.complexityLevel.value,
+                          controller.passwordScreenHelper.complexityLevel.value,
                           style: TextStyle(
-                              color: controller.complexityTextColor.value,
+                              color: controller.passwordScreenHelper
+                                  .complexityTextColor.value,
                               fontSize: 14,
                               fontWeight: FontWeight.bold),
                         ),
@@ -96,7 +101,8 @@ class RegistrationPassword extends StatelessWidget {
                       children: [
                         Column(
                           children: [
-                            !controller.containsLowerCase.value
+                            !controller.passwordScreenHelper.containsLowerCase
+                                    .value
                                 ? Text(
                                     'a',
                                     style: TextStyle(
@@ -115,7 +121,8 @@ class RegistrationPassword extends StatelessWidget {
                         ),
                         Column(
                           children: [
-                            !controller.containsUpperCase.value
+                            !controller.passwordScreenHelper.containsUpperCase
+                                    .value
                                 ? Text(
                                     'A',
                                     style: TextStyle(
@@ -134,7 +141,8 @@ class RegistrationPassword extends StatelessWidget {
                         ),
                         Column(
                           children: [
-                            !controller.containsNumbers.value
+                            !controller
+                                    .passwordScreenHelper.containsNumbers.value
                                 ? Text(
                                     '123',
                                     style: TextStyle(
@@ -153,7 +161,8 @@ class RegistrationPassword extends StatelessWidget {
                         ),
                         Column(
                           children: [
-                            !controller.hasRequiredLength.value
+                            !controller.passwordScreenHelper.hasRequiredLength
+                                    .value
                                 ? Text(
                                     '9+',
                                     style: TextStyle(

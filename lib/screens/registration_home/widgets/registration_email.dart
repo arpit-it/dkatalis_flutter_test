@@ -1,8 +1,9 @@
-import 'package:dkatalis_demo/screens/registration_home/controllers/registration_home_controller/registration_home_controller.dart';
-import 'package:dkatalis_demo/utilities/project_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:dkatalis_demo/utilities/string_extensions.dart';
+
+import '../controllers/registration_home_controller/registration_home_controller.dart';
+import '../../../utilities/project_colors.dart';
+import '../../../utilities/string_extensions.dart';
 
 class RegistrationEmail extends StatelessWidget {
   RegistrationEmail({Key? key}) : super(key: key);
@@ -64,9 +65,9 @@ class RegistrationEmail extends StatelessWidget {
                 height: 30,
               ),
               Form(
-                key: controller.emailFormKey,
+                key: controller.emailScreenHelper.emailFormKey,
                 child: TextFormField(
-                  controller: controller.emailTEC,
+                  controller: controller.emailScreenHelper.emailTEC,
                   obscureText: false,
                   validator: (string) {
                     if (string == null || string.trim().isEmpty) {

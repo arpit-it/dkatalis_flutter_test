@@ -1,8 +1,13 @@
+import 'package:dkatalis_demo/screens/registration_home/controllers/registration_home_controller.dart';
 import 'package:dkatalis_demo/utilities/project_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:dkatalis_demo/utilities/string_extensions.dart';
 
 class RegistrationEmail extends StatelessWidget {
-  const RegistrationEmail({Key? key}) : super(key: key);
+  RegistrationEmail({Key? key}) : super(key: key);
+
+  final RegistrationHomeController controller = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -58,13 +63,27 @@ class RegistrationEmail extends StatelessWidget {
               SizedBox(
                 height: 30,
               ),
-              const TextField(
-                obscureText: false,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Email',
+              Form(
+                key: controller.emailFormKey,
+                child: TextFormField(
+                  controller: controller.emailTEC,
+                  obscureText: false,
+                  validator: (string) {
+                    if (string == null || string.trim().isEmpty) {
+                      return 'Please enter your email address';
+                    }
+                    if (!string.isValidEmail()) {
+                      return 'Enter valid email address';
+                    }
+                    return null;
+                  },
+                  decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.email_outlined),
+                    border: OutlineInputBorder(),
+                    hintText: 'Email',
+                  ),
                 ),
-              )
+              ),
             ],
           ),
         ),

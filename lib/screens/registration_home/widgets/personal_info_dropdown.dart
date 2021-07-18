@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class PersonalInfoDropdown<String> extends StatelessWidget {
+class PersonalInfoDropdown extends StatelessWidget {
   late final List<DropdownMenuItem<String>> dropdownMenuItemList;
-  final ValueChanged<String?>? onChanged;
-  final String? value;
+  final ValueChanged<String?> onChanged;
+  final String value;
   final String title;
 
   PersonalInfoDropdown.fromListOfStrings({
@@ -11,7 +11,7 @@ class PersonalInfoDropdown<String> extends StatelessWidget {
     required this.title,
     required List<String> list,
     required this.onChanged,
-    this.value,
+    required this.value,
   }) {
     List<DropdownMenuItem<String>> items = [];
     for (var item in list) {
@@ -61,7 +61,7 @@ class PersonalInfoDropdown<String> extends StatelessWidget {
                     items: dropdownMenuItemList,
                     hint: Text('- Choose Option -'),
                     onChanged: onChanged,
-                    value: value,
+                    value: value.isEmpty ? null : value,
                   ),
                 ),
               ],

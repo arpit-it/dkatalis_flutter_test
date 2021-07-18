@@ -1,7 +1,9 @@
-import 'email_helper.dart';
-import 'password_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import 'email_helper.dart';
+import 'password_helper.dart';
+import 'personal_info_helper.dart';
 
 class RegistrationHomeController extends GetxController {
   var completedScreens = 0.obs;
@@ -9,6 +11,7 @@ class RegistrationHomeController extends GetxController {
 
   EmailHelper emailScreenHelper = new EmailHelper();
   PasswordHelper passwordScreenHelper = new PasswordHelper();
+  PersonalInfoHelper personalInfoHelper = new PersonalInfoHelper();
 
   bool shouldShowBackButton() => !(completedScreens.value == 0);
   void backPressed() {
@@ -36,6 +39,17 @@ class RegistrationHomeController extends GetxController {
           } else {
             Get.snackbar('Invalid Password',
                 'Password should match all the required criteria.',
+                colorText: Colors.white, snackPosition: SnackPosition.BOTTOM);
+          }
+          break;
+        }
+      case 2:
+        {
+          if (personalInfoHelper.isPersonalInfoScreenValid()) {
+            isScreenValid = true;
+          } else {
+            Get.snackbar('All Information Required',
+                'Please choose options for all fields.',
                 colorText: Colors.white, snackPosition: SnackPosition.BOTTOM);
           }
           break;

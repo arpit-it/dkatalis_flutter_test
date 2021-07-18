@@ -1,8 +1,13 @@
-import 'package:dkatalis_demo/screens/registration_home/widgets/personal_info_dropdown.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import 'personal_info_dropdown.dart';
+import '../controllers/registration_home_controller/registration_home_controller.dart';
 
 class PersonalInformation extends StatelessWidget {
-  const PersonalInformation({Key? key}) : super(key: key);
+  PersonalInformation({Key? key}) : super(key: key);
+
+  final RegistrationHomeController controller = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -34,33 +39,36 @@ class PersonalInformation extends StatelessWidget {
             SizedBox(
               height: 40,
             ),
-            PersonalInfoDropdown.fromListOfStrings(
-              onChanged: (item) {
-                print(item);
-              },
-              title: 'Goal for activation',
-              list: ['String1', 'Strng2', 'String3'],
-            ),
+            Obx(() {
+              return PersonalInfoDropdown.fromListOfStrings(
+                onChanged: controller.personalInfoHelper.onGoalSelected,
+                value: controller.personalInfoHelper.selectedGoal.value,
+                title: controller.personalInfoHelper.goalDropDownTitle,
+                list: controller.personalInfoHelper.goalOptions,
+              );
+            }),
             SizedBox(
               height: 30,
             ),
-            PersonalInfoDropdown.fromListOfStrings(
-              onChanged: (item) {
-                print(item);
-              },
-              title: 'Monthly Income',
-              list: ['String1', 'Strng2', 'String3'],
-            ),
+            Obx(() {
+              return PersonalInfoDropdown.fromListOfStrings(
+                onChanged: controller.personalInfoHelper.onIncomeSelected,
+                value: controller.personalInfoHelper.selectedIncome.value,
+                title: controller.personalInfoHelper.incomeDropDownTitle,
+                list: controller.personalInfoHelper.incomeOptions,
+              );
+            }),
             SizedBox(
               height: 30,
             ),
-            PersonalInfoDropdown.fromListOfStrings(
-              onChanged: (item) {
-                print(item);
-              },
-              title: 'Monthly expense',
-              list: ['String1', 'Strng2', 'String3'],
-            ),
+            Obx(() {
+              return PersonalInfoDropdown.fromListOfStrings(
+                onChanged: controller.personalInfoHelper.onExpenseSelected,
+                value: controller.personalInfoHelper.selectedExpense.value,
+                title: controller.personalInfoHelper.expenseDropDownTitle,
+                list: controller.personalInfoHelper.expenseOptions,
+              );
+            }),
           ],
         ),
       ),

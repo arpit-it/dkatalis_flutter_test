@@ -117,7 +117,6 @@ class VCDatePicker extends StatelessWidget {
   }
 
   String getWeekDay(int weekDay) {
-    print(weekDay);
     switch (weekDay) {
       case 1:
         return 'Monday';
@@ -138,7 +137,6 @@ class VCDatePicker extends StatelessWidget {
   }
 
   String getMonth(int month) {
-    print(month);
     switch (month) {
       case 1:
         return 'Jan';

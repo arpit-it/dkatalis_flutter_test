@@ -8,7 +8,7 @@ class RegistrationPassword extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox.expand(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 50),
+        padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 70),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,

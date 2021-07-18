@@ -1,3 +1,4 @@
+import 'package:dkatalis_demo/screens/registration_home/widgets/personal_information.dart';
 import 'package:dkatalis_demo/screens/registration_home/widgets/registration_password.dart';
 import 'package:dkatalis_demo/utilities/project_colors.dart';
 import 'package:flutter/material.dart';
@@ -57,9 +58,7 @@ class RegistrationHome extends GetView<RegistrationHomeController> {
                               case 1:
                                 return RegistrationPassword();
                               case 2:
-                                return Container(
-                                  color: Colors.deepPurple,
-                                );
+                                return PersonalInformation();
                               case 3:
                                 return Container(
                                   color: Colors.orange,

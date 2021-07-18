@@ -1,10 +1,15 @@
-import 'package:dkatalis_demo/screens/registration_home/widgets/vc_date_picker.dart';
-import 'package:dkatalis_demo/screens/registration_home/widgets/calendar_animation.dart';
-import 'package:dkatalis_demo/screens/registration_home/widgets/vc_time_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import 'vc_date_picker.dart';
+import 'calendar_animation.dart';
+import 'vc_time_picker.dart';
+import '../controllers/registration_home_controller/registration_home_controller.dart';
 
 class VideoCallScheduler extends StatelessWidget {
-  const VideoCallScheduler({Key? key}) : super(key: key);
+  VideoCallScheduler({Key? key}) : super(key: key);
+
+  final RegistrationHomeController controller = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -41,19 +46,15 @@ class VideoCallScheduler extends StatelessWidget {
               height: 40,
             ),
             VCDatePicker(
-              selectedDate: null,
-              onDateChanged: (date) {
-                print(date.toString());
-              },
+              selectedDate: controller.callScheduleHelper.selectedDate.value,
+              onDateChanged: controller.callScheduleHelper.onDateSelected,
             ),
             SizedBox(
               height: 30,
             ),
             VCTimePicker(
-                selectedTime: null,
-                onDateChanged: (time) {
-                  print(time.toString());
-                })
+                selectedTime: controller.callScheduleHelper.selectedTime.value,
+                onTimeChanged: controller.callScheduleHelper.onTimeSelected),
           ],
         ),
       ),

@@ -1,3 +1,4 @@
+import 'package:dkatalis_demo/screens/registration_home/controllers/registration_home_controller/call_schedule_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -12,6 +13,7 @@ class RegistrationHomeController extends GetxController {
   EmailHelper emailScreenHelper = new EmailHelper();
   PasswordHelper passwordScreenHelper = new PasswordHelper();
   PersonalInfoHelper personalInfoHelper = new PersonalInfoHelper();
+  CallScheduleHelper callScheduleHelper = new CallScheduleHelper();
 
   bool shouldShowBackButton() => !(completedScreens.value == 0);
   void backPressed() {
@@ -50,6 +52,17 @@ class RegistrationHomeController extends GetxController {
           } else {
             Get.snackbar('All Information Required',
                 'Please choose options for all fields.',
+                colorText: Colors.white, snackPosition: SnackPosition.BOTTOM);
+          }
+          break;
+        }
+      case 3:
+        {
+          if (callScheduleHelper.isCallScheduleValid()) {
+            isScreenValid = true;
+          } else {
+            Get.snackbar('Date and Time required',
+                'Please select date and time so that we can schedule a call.',
                 colorText: Colors.white, snackPosition: SnackPosition.BOTTOM);
           }
           break;

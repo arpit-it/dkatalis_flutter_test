@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 
 class VCTimePicker extends StatelessWidget {
   const VCTimePicker(
-      {Key? key, required this.selectedTime, required this.onDateChanged})
+      {Key? key, required this.selectedTime, required this.onTimeChanged})
       : super(key: key);
   final TimeOfDay? selectedTime;
-  final Function(TimeOfDay) onDateChanged;
+  final Function(TimeOfDay) onTimeChanged;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -66,7 +66,9 @@ class VCTimePicker extends StatelessWidget {
       initialTime: selectedTime ??
           TimeOfDay(hour: DateTime.now().hour, minute: DateTime.now().minute),
     );
-    if (newTime != null) {}
+    if (newTime != null) {
+      onTimeChanged(newTime);
+    }
   }
 
   String _getReadableTime(BuildContext context) {

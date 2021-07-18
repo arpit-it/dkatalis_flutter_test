@@ -77,8 +77,8 @@ class VCDatePicker extends StatelessWidget {
   _buildMaterialDatePicker(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
-      initialDate: selectedDate ?? DateTime.now(),
-      firstDate: DateTime.now(),
+      initialDate: selectedDate ?? DateTime.now().add(Duration(days: 1)),
+      firstDate: DateTime.now().add(Duration(days: 1)),
       lastDate: DateTime.now().add(Duration(days: 30)),
     );
     if (picked != null && picked != selectedDate) {
@@ -100,8 +100,9 @@ class VCDatePicker extends StatelessWidget {
                   onDateChanged(picked);
                 }
               },
-              initialDateTime: selectedDate ?? DateTime.now(),
-              minimumDate: DateTime.now(),
+              initialDateTime:
+                  selectedDate ?? DateTime.now().add(Duration(days: 1)),
+              minimumDate: DateTime.now().add(Duration(days: 1)),
               maximumDate: DateTime.now().add(Duration(days: 30)),
             ),
           );
@@ -110,8 +111,60 @@ class VCDatePicker extends StatelessWidget {
 
   String _getReadableDate() {
     if (selectedDate != null) {
-      return '${selectedDate!.day}-${selectedDate!.month}-${selectedDate!.year}';
+      return '${getWeekDay(selectedDate!.weekday)}, ${selectedDate!.day} ${getMonth(selectedDate!.month)} ${selectedDate!.year}';
     }
     return '- Choose Date -';
+  }
+
+  String getWeekDay(int weekDay) {
+    print(weekDay);
+    switch (weekDay) {
+      case 1:
+        return 'Monday';
+      case 2:
+        return 'Tuesday';
+      case 3:
+        return 'Wednesday';
+      case 4:
+        return 'Thursday';
+      case 5:
+        return 'Friday';
+      case 6:
+        return 'Saturday';
+      case 7:
+        return 'Sunday';
+    }
+    return '';
+  }
+
+  String getMonth(int month) {
+    print(month);
+    switch (month) {
+      case 1:
+        return 'Jan';
+      case 2:
+        return 'Feb';
+      case 3:
+        return 'Mar';
+      case 4:
+        return 'Apr';
+      case 5:
+        return 'May';
+      case 6:
+        return 'June';
+      case 7:
+        return 'July';
+      case 8:
+        return 'Aug';
+      case 9:
+        return 'Sep';
+      case 10:
+        return 'Oct';
+      case 11:
+        return 'Nov';
+      case 12:
+        return 'Dec';
+    }
+    return '';
   }
 }

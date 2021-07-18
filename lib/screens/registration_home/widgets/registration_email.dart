@@ -1,4 +1,4 @@
-import 'package:dkatalis_demo/screens/registration_home/controllers/registration_home_controller.dart';
+import 'package:dkatalis_demo/screens/registration_home/controllers/registration_home_controller/registration_home_controller.dart';
 import 'package:dkatalis_demo/utilities/project_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

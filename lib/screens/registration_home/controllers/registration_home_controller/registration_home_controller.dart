@@ -5,7 +5,6 @@ import 'package:dkatalis_demo/utilities/string_extensions.dart';
 class RegistrationHomeController extends GetxController {
   var completedScreens = 0.obs;
 
-  bool shouldShowBackButton() => !(completedScreens.value == 0);
   PageController viewPagerController = PageController();
 
   final emailFormKey = GlobalKey<FormState>();
@@ -20,6 +19,8 @@ class RegistrationHomeController extends GetxController {
   RxBool obscurePassword = RxBool(true);
 
   bool isPasswordAcceptable = false;
+
+  bool shouldShowBackButton() => !(completedScreens.value == 0);
 
   void backPressed() {
     if (completedScreens.value >= 0) {
@@ -58,9 +59,7 @@ class RegistrationHomeController extends GetxController {
     }
   }
 
-  void toggleObscureText() {
-    obscurePassword.value = !obscurePassword.value;
-  }
+  void toggleObscureText() => obscurePassword.value = !obscurePassword.value;
 
   void onPasswordTextChange(String? string) {
     if (string != null && string.trim().isNotEmpty) {

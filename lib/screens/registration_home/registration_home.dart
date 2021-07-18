@@ -4,7 +4,7 @@ import 'package:dkatalis_demo/utilities/project_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'controllers/registration_home_controller.dart';
+import 'controllers/registration_home_controller/registration_home_controller.dart';
 import 'widgets/calendar_selection.dart';
 import 'widgets/registration_email.dart';
 import 'widgets/registration_screen_counter.dart';

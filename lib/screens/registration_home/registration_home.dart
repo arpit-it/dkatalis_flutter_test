@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'controllers/registration_home_controller.dart';
+import 'widgets/calendar_selection.dart';
 import 'widgets/registration_email.dart';
 import 'widgets/registration_screen_counter.dart';
 import 'widgets/registration_home_back_button.dart';
@@ -60,9 +61,7 @@ class RegistrationHome extends GetView<RegistrationHomeController> {
                               case 2:
                                 return PersonalInformation();
                               case 3:
-                                return Container(
-                                  color: Colors.orange,
-                                );
+                                return VideoCallScheduler();
                               default:
                                 return Container(
                                   color: Colors.pink,

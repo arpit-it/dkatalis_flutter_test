@@ -45,16 +45,21 @@ class VideoCallScheduler extends StatelessWidget {
             SizedBox(
               height: 40,
             ),
-            VCDatePicker(
-              selectedDate: controller.callScheduleHelper.selectedDate.value,
-              onDateChanged: controller.callScheduleHelper.onDateSelected,
-            ),
+            Obx(() {
+              return VCDatePicker(
+                selectedDate: controller.callScheduleHelper.selectedDate.value,
+                onDateChanged: controller.callScheduleHelper.onDateSelected,
+              );
+            }),
             SizedBox(
               height: 30,
             ),
-            VCTimePicker(
-                selectedTime: controller.callScheduleHelper.selectedTime.value,
-                onTimeChanged: controller.callScheduleHelper.onTimeSelected),
+            Obx(() {
+              return VCTimePicker(
+                  selectedTime:
+                      controller.callScheduleHelper.selectedTime.value,
+                  onTimeChanged: controller.callScheduleHelper.onTimeSelected);
+            })
           ],
         ),
       ),

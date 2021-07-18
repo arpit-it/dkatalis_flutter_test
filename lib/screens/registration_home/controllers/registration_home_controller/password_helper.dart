@@ -18,7 +18,6 @@ class PasswordHelper {
 
   void onPasswordTextChange(String? string) {
     if (string != null && string.trim().isNotEmpty) {
-      print(string);
       updatePasswordRequirement(string);
       updatePasswordComplexity();
     } else {

@@ -1,10 +1,10 @@
-import 'package:dkatalis_demo/screens/registration_home/controllers/registration_home_controller/call_schedule_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'email_helper.dart';
 import 'password_helper.dart';
 import 'personal_info_helper.dart';
+import 'call_schedule_helper.dart';
 
 class RegistrationHomeController extends GetxController {
   var completedScreens = 0.obs;
@@ -72,6 +72,23 @@ class RegistrationHomeController extends GetxController {
       completedScreens.value++;
       viewPagerController.animateToPage(completedScreens.value,
           duration: Duration(milliseconds: 500), curve: Curves.easeInExpo);
+    } else if (isScreenValid && completedScreens.value == 3) {
+      // all screens are valid
+      completedScreens.value++;
+      Get.defaultDialog(
+        onWillPop: () async {
+          return false;
+        },
+        title: 'Registration Successful',
+        middleText:
+            'Thank you for showing interest in our bank. We have emailed you the account info and call details. Our executive will call you on the time you have provided.',
+        textConfirm: "OK",
+        barrierDismissible: false,
+        onConfirm: () {
+          Get.back();
+          completedScreens.value--;
+        },
+      );
     }
   }
 }

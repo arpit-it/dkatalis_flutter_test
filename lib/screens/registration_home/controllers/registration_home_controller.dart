@@ -11,7 +11,7 @@ class RegistrationHomeController extends GetxController {
     if (completedScreens.value >= 0) {
       completedScreens.value--;
       viewPagerController.animateToPage(completedScreens.value,
-          duration: Duration(milliseconds: 1000), curve: Curves.easeInExpo);
+          duration: Duration(milliseconds: 500), curve: Curves.easeInExpo);
     }
   }
 
@@ -19,7 +19,7 @@ class RegistrationHomeController extends GetxController {
     if (completedScreens.value < 3) {
       completedScreens.value++;
       viewPagerController.animateToPage(completedScreens.value,
-          duration: Duration(milliseconds: 1000), curve: Curves.easeInExpo);
+          duration: Duration(milliseconds: 500), curve: Curves.easeInExpo);
     }
   }
 }

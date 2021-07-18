@@ -1,9 +1,10 @@
-import 'package:dkatalis_demo/screens/registration_home/registration_email/registration_email.dart';
+import 'package:dkatalis_demo/screens/registration_home/widgets/registration_password.dart';
 import 'package:dkatalis_demo/utilities/project_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'controllers/registration_home_controller.dart';
+import 'widgets/registration_email.dart';
 import 'widgets/registration_screen_counter.dart';
 import 'widgets/registration_home_back_button.dart';
 
@@ -54,9 +55,7 @@ class RegistrationHome extends GetView<RegistrationHomeController> {
                               case 0:
                                 return RegistrationEmail();
                               case 1:
-                                return Container(
-                                  color: Colors.cyan,
-                                );
+                                return RegistrationPassword();
                               case 2:
                                 return Container(
                                   color: Colors.deepPurple,
@@ -91,7 +90,7 @@ class RegistrationHome extends GetView<RegistrationHomeController> {
                         primary: ProjectColors.BUTTON_COLOR_BLUE,
                         padding: EdgeInsets.symmetric(
                             horizontal:
-                            (MediaQuery.of(context).size.width / 2) - 50,
+                                (MediaQuery.of(context).size.width / 2) - 50,
                             vertical: 18),
                         textStyle: TextStyle(
                           fontSize: 20,

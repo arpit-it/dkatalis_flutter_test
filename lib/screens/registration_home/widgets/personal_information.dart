@@ -13,7 +13,7 @@ class PersonalInformation extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox.expand(
       child: Padding(
-        padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 70),
+        padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 50),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,

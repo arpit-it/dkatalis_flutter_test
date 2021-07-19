@@ -17,7 +17,7 @@ class RegistrationHomeController extends GetxController {
 
   bool shouldShowBackButton() => !(completedScreens.value == 0);
   void backPressed() {
-    if (completedScreens.value >= 0) {
+    if (completedScreens.value > 0) {
       completedScreens.value--;
       viewPagerController.animateToPage(completedScreens.value,
           duration: Duration(milliseconds: 500), curve: Curves.easeInExpo);

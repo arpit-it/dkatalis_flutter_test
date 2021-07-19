@@ -12,83 +12,89 @@ class RegistrationEmail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-          color: Colors.white,
-          child: ClipPath(
-            clipper: CustomBackground(),
-            child: Container(
-              color: ProjectColors.BACKGROUND_BLUE,
+    return Scaffold(
+      resizeToAvoidBottomInset: true,
+      body: Stack(
+        children: [
+          Container(
+            color: Colors.white,
+            child: ClipPath(
+              clipper: CustomBackground(),
+              child: Container(
+                color: ProjectColors.BACKGROUND_BLUE,
+              ),
             ),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 70, horizontal: 20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Welcome to',
-                style: TextStyle(
-                    fontSize: 45,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black),
-              ),
-              RichText(
-                text: TextSpan(
-                  style: TextStyle(
-                    fontSize: 45,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
+          Padding(
+            padding: const EdgeInsets.only(top: 70, left: 20, right: 20),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Welcome to',
+                    style: TextStyle(
+                        fontSize: 45,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black),
                   ),
-                  children: [
-                    TextSpan(
-                      text: 'GIN',
+                  RichText(
+                    text: TextSpan(
+                      style: TextStyle(
+                        fontSize: 45,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      children: [
+                        TextSpan(
+                          text: 'GIN',
+                        ),
+                        TextSpan(
+                          text: ' Finans',
+                          style:
+                              TextStyle(color: ProjectColors.BACKGROUND_BLUE),
+                        ),
+                      ],
                     ),
-                    TextSpan(
-                      text: ' Finans',
-                      style: TextStyle(color: ProjectColors.BACKGROUND_BLUE),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Text(
-                'Welcome to The Bank of The Future.\nManage and track your accounts on the go.',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Form(
-                key: controller.emailScreenHelper.emailFormKey,
-                child: TextFormField(
-                  controller: controller.emailScreenHelper.emailTEC,
-                  obscureText: false,
-                  validator: (string) {
-                    if (string == null || string.trim().isEmpty) {
-                      return 'Please enter your email address';
-                    }
-                    if (!string.isValidEmail()) {
-                      return 'Enter valid email address';
-                    }
-                    return null;
-                  },
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.email_outlined),
-                    border: OutlineInputBorder(),
-                    hintText: 'Email',
                   ),
-                ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Text(
+                    'Welcome to The Bank of The Future.\nManage and track your accounts on the go.',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Form(
+                    key: controller.emailScreenHelper.emailFormKey,
+                    child: TextFormField(
+                      controller: controller.emailScreenHelper.emailTEC,
+                      obscureText: false,
+                      validator: (string) {
+                        if (string == null || string.trim().isEmpty) {
+                          return 'Please enter your email address';
+                        }
+                        if (!string.isValidEmail()) {
+                          return 'Enter valid email address';
+                        }
+                        return null;
+                      },
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(Icons.email_outlined),
+                        border: OutlineInputBorder(),
+                        hintText: 'Email',
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

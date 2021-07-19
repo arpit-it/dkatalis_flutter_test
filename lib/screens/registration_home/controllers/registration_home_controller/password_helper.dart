@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import '../../../../utilities/string_extensions.dart';
 
 class PasswordHelper {
+  TextEditingController passwordTEC = TextEditingController();
+
   RxString complexityLevel = RxString('');
   Rx<Color> complexityTextColor = Rx(Colors.red);
   RxBool containsLowerCase = RxBool(false);
